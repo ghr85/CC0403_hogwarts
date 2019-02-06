@@ -8,7 +8,6 @@ Note that drop down has select & options rather than input
 name attribute should match what is expected in hash or won't match input
  -->
 
-
  <form method='post' action='/'>
    <label for='first-name'>First Name:</label>
    <input id='first-name' type='text' name='first_name'/>
@@ -18,10 +17,9 @@ name attribute should match what is expected in hash or won't match input
    <input id='age' type='number' name='age'/>
    <label for='house-select'>Select a House:</label>
    <select id='house-select' name='house'>
-     <option value='1'>Slythering</option>
-     <option value='2'>Gryffindor</option>
-     <option value='3'>Ravenclaw</option>
-     <option value='4'>Hufflepuff</option>
+     <%@house_party.each do |house|%>
+    <option value='<%=house.id%>'><%=house.house_name%></option>
+<%end%>
    </select>
    <input type='submit' value='Create Student'/>
  </form>
