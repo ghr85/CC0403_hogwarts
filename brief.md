@@ -59,7 +59,7 @@ You have been asked to store the houses in the separate table in the database. A
 You now need to create the relationship between students and houses.
 
 - Alter the student to have a foreign key to House instead of text:white_check_mark:
-- Add a method to Student to find a house() for the student
+- Add a method to Student to find a house() for the student :white_check_mark:
 - Update the view to display the informtation about the house, when displaying a student
 
 ## Extension

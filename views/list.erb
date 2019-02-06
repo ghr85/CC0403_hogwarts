@@ -1,6 +1,8 @@
 <%@students.each do |student| %>
+<%house = student.find_house%>
 <p>Name:<%=student.pretty_print%></p>
-<p>House:<%=student.house%></p>
 <p>Age:<%=student.age%></p>
+<p>House:<%=house.house_name%></p>
+<p>logo:<img src='<%=house.house_img%>' alt='house-crest'></p>
 <hr/>
 <% end %>
