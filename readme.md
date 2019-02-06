@@ -55,4 +55,4 @@ Again, there are numerous
 * rules.erb - Embedded Ruby file for rules
 * furious_styles.css - CSS Stylesheet for app
 
-> "Give me the gun Trey"
+> "You're a Wizard Harry"
