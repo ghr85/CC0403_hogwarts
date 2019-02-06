@@ -6,21 +6,22 @@ require('pry')
 
 class House
 
-  attr_reader :house_name, :id
+  attr_reader :house_name,:house_img, :id
 
 
 def initialize(options)
   @id = options['id'].to_i
 @house_name = options['house_name']
+@house_img = options['house_img']
 end
 
 def save
 sql = "INSERT INTO houses(
-house_name
+house_name,house_img
 ) VALUES (
-  $1
+  $1,$2
   ) RETURNING *"
-values = [@house_name]
+values = [@house_name, @house_img]
 house_obj = SqlRunner.run(sql,values)
 @id = house_obj.first['id'].to_i
 
@@ -30,14 +31,14 @@ def update()
 
   sql = "UPDATE houses SET
   (
-    house_name
+    house_name,house_img
   )
   =
   (
-    $1
+    $1,$2
   )
-  WHERE id = $2"
-  values = [@house_name,@id]
+  WHERE id = $3"
+  values = [@house_name,@house_img,@id]
   SqlRunner.run( sql, values )
 end
 

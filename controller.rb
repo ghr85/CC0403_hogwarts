@@ -11,7 +11,7 @@ end
 
 get '/all-students' do
   @students = Student.all()
-erb(:index)
+erb(:list)
 end
 
 get '/new' do

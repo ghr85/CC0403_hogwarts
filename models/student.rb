@@ -2,6 +2,7 @@
 # Hogwarts Lab - Sinatra/HTTP
 
 require_relative('../db/sql_runner')
+require_relative('house')
 require('pry')
 
 class Student
@@ -47,14 +48,23 @@ def update()
   SqlRunner.run( sql, values )
 end
 
+def find_house
+  sql = "SELECT * FROM houses
+  WHERE houses.id = $1"
+  values = [@house]
+  result = SqlRunner.run(sql,values).first #returns the hash of house
+  return House.new(result)
+end
+
 
 def pretty_print
-
-return "#{@first_name} #{@second_name}"
+  return "#{@first_name} #{@second_name}"
 end
 
 def self.all()
   sql = "SELECT * FROM students"
+  # sql = "SELECT students.first_name, students.second_name,students.age,houses.house_name, houses.house_img FROM houses
+  # INNER JOIN students ON students.house = houses.id"
   values = []
   students = SqlRunner.run(sql, values)
   result = students.map { |student| Student.new( student ) }
