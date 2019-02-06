@@ -6,7 +6,7 @@ require('pry')
 
 class Student
 
-  attr_reader :first_name, :second_name, :house, :age
+  attr_reader :first_name, :second_name, :house, :age, :id
 
 
 def initialize(options)
@@ -46,6 +46,7 @@ def update()
   values = [@first_name,@second_name,@house,@age,@id]
   SqlRunner.run( sql, values )
 end
+
 
 def pretty_print
 
