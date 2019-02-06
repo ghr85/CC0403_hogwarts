@@ -47,6 +47,11 @@ def update()
   SqlRunner.run( sql, values )
 end
 
+def pretty_print
+
+return "#{@first_name} #{@second_name}"
+end
+
 def self.all()
   sql = "SELECT * FROM students"
   values = []

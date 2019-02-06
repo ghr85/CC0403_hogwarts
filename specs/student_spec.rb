@@ -8,5 +8,18 @@ require('pry')
 
 class TestStudent < MiniTest::Test
 
+  def setup
+    @test_student = Student.new({
+      "first_name" => "Harry",
+      "second_name" => "Potter",
+      "house" => "Griffindor",
+      "age" => 13
+      })
+  end
+
+
+  def test_pretty_print
+      assert_equal("Harry Potter",@test_student.pretty_print() )
+  end
 
 end
